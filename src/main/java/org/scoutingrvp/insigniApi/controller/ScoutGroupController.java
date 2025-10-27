@@ -26,13 +26,13 @@ public class ScoutGroupController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ScoutGroupDto> getScoutGroupById(@PathVariable Long id) {
+    public ResponseEntity<ScoutGroupDto> getScoutGroupById(@PathVariable Integer id) {
         ScoutGroupDto scoutGroup = scoutGroupService.getScoutGroupById(id);
         return ResponseEntity.ok(scoutGroup);
     }
 
     @GetMapping("/{id}/scouts")
-    public ResponseEntity<List<Scout>> getScoutsByScoutGroupId(@PathVariable Long id) {
+    public ResponseEntity<List<Scout>> getScoutsByScoutGroupId(@PathVariable Integer id) {
         List<Scout> scouts = scoutGroupService.getScoutsByScoutGroupId(id);
         return ResponseEntity.ok(scouts);
     }
@@ -44,13 +44,13 @@ public class ScoutGroupController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ScoutGroupDto> updateScoutGroup(@PathVariable Long id, @RequestBody @Valid CreateScoutGroupDto updateDto) {
+    public ResponseEntity<ScoutGroupDto> updateScoutGroup(@PathVariable Integer id, @RequestBody @Valid CreateScoutGroupDto updateDto) {
         ScoutGroupDto updatedScoutGroup = scoutGroupService.updateScoutGroup(id, updateDto);
         return ResponseEntity.ok(updatedScoutGroup);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteScoutGroup(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteScoutGroup(@PathVariable Integer id) {
         scoutGroupService.deleteScoutGroup(id);
         return ResponseEntity.noContent().build();
     }

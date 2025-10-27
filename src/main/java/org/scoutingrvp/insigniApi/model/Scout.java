@@ -7,23 +7,24 @@ import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.Range;
 
+import java.util.List;
+
 @Entity
 @Data
 public class Scout {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @NotBlank
-    @Length(min = 3, max = 128)
     private String firstName;
-    @NotBlank
-    @Length(min = 3, max = 128)
     private String lastName;
-    @NotNull
-    @Range(min = 1, max = 4)
     private Integer ageGroup;
+
     @ManyToOne
     @JoinColumn(name = "group_id")
-    @NotNull
     private ScoutGroup group;
+
+    @ManyToMany(mappedBy = "earnedByScouts", fetch = FetchType.EAGER)
+    private List<Insignia> earnedInsignias;
+    @ManyToMany(mappedBy = "earnedByScouts", fetch = FetchType.EAGER)
+    private List<InsigniaRequirement> earnedRequirements;
 }

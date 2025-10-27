@@ -27,13 +27,13 @@ public class ScoutGroupService {
         return scoutGroupRepository.findAll().stream().map(scoutGroupMapper::toDto).toList();
     }
 
-    public ScoutGroupDto getScoutGroupById(Long id) {
+    public ScoutGroupDto getScoutGroupById(Integer id) {
         ScoutGroup scoutGroup = scoutGroupRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Scout group with id " + id + " could not be found"));
         return scoutGroupMapper.toDto(scoutGroup);
     }
 
-    public List<Scout> getScoutsByScoutGroupId(Long id) {
+    public List<Scout> getScoutsByScoutGroupId(Integer id) {
         ScoutGroup scoutGroup = scoutGroupRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Scout group with id " + id + " could not be found"));
         return scoutGroup.getScouts();
@@ -56,7 +56,7 @@ public class ScoutGroupService {
         return scoutGroupDto;
     }
 
-    public ScoutGroupDto updateScoutGroup(Long id, CreateScoutGroupDto updateDto) {
+    public ScoutGroupDto updateScoutGroup(Integer id, CreateScoutGroupDto updateDto) {
         ScoutGroup scoutGroup = scoutGroupRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Scout group with id " + id + " could not be found"));
 
@@ -71,7 +71,7 @@ public class ScoutGroupService {
         return scoutGroupDto;
     }
 
-    public void deleteScoutGroup(Long id) {
+    public void deleteScoutGroup(Integer id) {
         ScoutGroup scoutGroup = scoutGroupRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Scout group with id " + id + " could not be found"));
         scoutGroupRepository.delete(scoutGroup);
