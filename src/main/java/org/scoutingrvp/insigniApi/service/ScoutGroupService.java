@@ -7,7 +7,7 @@ import org.scoutingrvp.insigniApi.exception.ScoutGroupExistsException;
 import org.scoutingrvp.insigniApi.model.Scout;
 import org.scoutingrvp.insigniApi.model.ScoutGroup;
 import org.scoutingrvp.insigniApi.repository.ScoutGroupRepository;
-import org.scoutingrvp.insigniApi.util.ScoutGroupMapper;
+import org.scoutingrvp.insigniApi.util.mapper.ScoutGroupMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

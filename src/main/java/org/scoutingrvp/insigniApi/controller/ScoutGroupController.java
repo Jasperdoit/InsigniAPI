@@ -4,7 +4,6 @@ import jakarta.validation.Valid;
 import org.scoutingrvp.insigniApi.dto.scoutGroup.CreateScoutGroupDto;
 import org.scoutingrvp.insigniApi.dto.scoutGroup.ScoutGroupDto;
 import org.scoutingrvp.insigniApi.model.Scout;
-import org.scoutingrvp.insigniApi.model.ScoutGroup;
 import org.scoutingrvp.insigniApi.service.ScoutGroupService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

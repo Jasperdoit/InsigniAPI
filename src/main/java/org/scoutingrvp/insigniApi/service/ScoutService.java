@@ -1,14 +1,14 @@
 package org.scoutingrvp.insigniApi.service;
 
 import jakarta.persistence.EntityNotFoundException;
-import org.scoutingrvp.insigniApi.dto.scoutGroup.scout.CreateScoutDto;
-import org.scoutingrvp.insigniApi.dto.scoutGroup.scout.ScoutDto;
-import org.scoutingrvp.insigniApi.dto.scoutGroup.scout.UpdateScoutDto;
+import org.scoutingrvp.insigniApi.dto.scout.CreateScoutDto;
+import org.scoutingrvp.insigniApi.dto.scout.ScoutDto;
+import org.scoutingrvp.insigniApi.dto.scout.UpdateScoutDto;
 import org.scoutingrvp.insigniApi.model.Scout;
 import org.scoutingrvp.insigniApi.model.ScoutGroup;
 import org.scoutingrvp.insigniApi.repository.ScoutGroupRepository;
 import org.scoutingrvp.insigniApi.repository.ScoutRepository;
-import org.scoutingrvp.insigniApi.util.ScoutMapper;
+import org.scoutingrvp.insigniApi.util.mapper.ScoutMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -69,4 +69,16 @@ public class ScoutService {
                 .orElseThrow(() -> new EntityNotFoundException("Scout with id " + id + " could not be found"));
         scoutRepository.delete(scout);
     }
+
+    public ScoutDto assignScoutToGroup(Integer scoutId, Integer groupId) {
+        Scout scout = scoutRepository.findById(scoutId)
+                .orElseThrow(() -> new EntityNotFoundException("Scout with id " + scoutId + " could not be found"));
+        ScoutGroup scoutGroup = scoutGroupRepository.findById(groupId)
+                .orElseThrow(() -> new EntityNotFoundException("Scout group with id " + groupId + " could not be found"));
+
+        scout.setGroup(scoutGroup);
+        Scout updatedScout = scoutRepository.save(scout);
+        return scoutMapper.toDto(updatedScout);
+    }
+
 }

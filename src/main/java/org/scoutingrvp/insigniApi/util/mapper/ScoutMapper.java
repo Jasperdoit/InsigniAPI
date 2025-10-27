@@ -1,6 +1,6 @@
-package org.scoutingrvp.insigniApi.util;
+package org.scoutingrvp.insigniApi.util.mapper;
 
-import org.scoutingrvp.insigniApi.dto.scoutGroup.scout.ScoutDto;
+import org.scoutingrvp.insigniApi.dto.scout.ScoutDto;
 import org.scoutingrvp.insigniApi.model.Scout;
 import org.springframework.stereotype.Component;
 

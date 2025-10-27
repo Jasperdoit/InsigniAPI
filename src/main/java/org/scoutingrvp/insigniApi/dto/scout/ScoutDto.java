@@ -1,4 +1,4 @@
-package org.scoutingrvp.insigniApi.dto.scoutGroup.scout;
+package org.scoutingrvp.insigniApi.dto.scout;
 
 import lombok.Data;
 

@@ -1,4 +1,4 @@
-package org.scoutingrvp.insigniApi.dto.scoutGroup.scout;
+package org.scoutingrvp.insigniApi.dto.scout;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -7,7 +7,7 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.Range;
 
 @Data
-public class CreateScoutDto {
+public class UpdateScoutDto {
     @NotBlank
     @Length(min = 3, max = 128)
     private String firstName;
@@ -17,6 +17,4 @@ public class CreateScoutDto {
     @NotNull
     @Range(min = 1, max = 4)
     private Integer ageGroup;
-    @NotNull(message = "Scout must be supplied a group")
-    private Integer groupId;
 }

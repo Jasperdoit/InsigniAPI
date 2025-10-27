@@ -1,4 +1,4 @@
-package org.scoutingrvp.insigniApi.util;
+package org.scoutingrvp.insigniApi.util.mapper;
 
 import org.scoutingrvp.insigniApi.dto.scoutGroup.ScoutGroupDto;
 import org.scoutingrvp.insigniApi.model.ScoutGroup;

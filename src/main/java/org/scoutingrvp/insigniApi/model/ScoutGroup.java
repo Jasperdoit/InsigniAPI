@@ -20,4 +20,6 @@ public class ScoutGroup {
 
     @OneToMany(mappedBy = "group")
     private List<Scout> scouts;
+    @OneToMany(mappedBy = "group")
+    private List<ScoutLeader> leaders;
 }
