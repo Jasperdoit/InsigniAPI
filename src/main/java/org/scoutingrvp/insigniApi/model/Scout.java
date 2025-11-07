@@ -1,11 +1,7 @@
 package org.scoutingrvp.insigniApi.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.Data;
-import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.Range;
 
 import java.util.List;
 
