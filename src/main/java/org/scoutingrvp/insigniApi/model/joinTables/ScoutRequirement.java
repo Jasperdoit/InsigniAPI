@@ -27,5 +27,5 @@ public class ScoutRequirement {
     private ScoutLeader signedOffBy;
 
     @Column(name = "completed_at")
-    private LocalDateTime completedAt;
+    private LocalDateTime earnedAt;
 }

@@ -25,5 +25,5 @@ public class Scout {
     private List<ScoutInsignia> insignias;
 
     @OneToMany(mappedBy = "scout", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<ScoutRequirement> scoutRequirements;
+    private List<ScoutRequirement> requirements;
 }

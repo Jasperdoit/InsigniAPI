@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class InsigniaMapper {
-    private InsigniaRequirementMapper insigniaRequirementMapper;
+    private final InsigniaRequirementMapper insigniaRequirementMapper;
 
     public InsigniaMapper(InsigniaRequirementMapper insigniaRequirementMapper) {
         this.insigniaRequirementMapper = insigniaRequirementMapper;
