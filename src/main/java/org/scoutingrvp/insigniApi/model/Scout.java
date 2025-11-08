@@ -2,6 +2,8 @@ package org.scoutingrvp.insigniApi.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.scoutingrvp.insigniApi.model.joinTables.ScoutInsignia;
+import org.scoutingrvp.insigniApi.model.joinTables.ScoutRequirement;
 
 import java.util.List;
 
@@ -19,8 +21,9 @@ public class Scout {
     @JoinColumn(name = "group_id")
     private ScoutGroup group;
 
-    @ManyToMany(mappedBy = "earnedByScouts", fetch = FetchType.EAGER)
-    private List<Insignia> earnedInsignias;
-    @ManyToMany(mappedBy = "earnedByScouts", fetch = FetchType.EAGER)
-    private List<InsigniaRequirement> earnedRequirements;
+    @OneToMany(mappedBy = "scout", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<ScoutInsignia> insignias;
+
+    @OneToMany(mappedBy = "scout", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<ScoutRequirement> scoutRequirements;
 }

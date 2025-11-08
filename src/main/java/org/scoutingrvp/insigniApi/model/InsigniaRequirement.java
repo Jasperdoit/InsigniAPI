@@ -2,6 +2,7 @@ package org.scoutingrvp.insigniApi.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.scoutingrvp.insigniApi.model.joinTables.ScoutRequirement;
 
 import java.util.List;
 
@@ -18,11 +19,6 @@ public class InsigniaRequirement {
     @JoinColumn(name = "insignia_id")
     private Insignia insignia;
 
-    @ManyToMany
-    @JoinTable(
-            name = "scout_requirement",
-            joinColumns = @JoinColumn(name = "requirement_id"),
-            inverseJoinColumns = @JoinColumn(name = "scout_id")
-    )
-    private List<Scout> earnedByScouts;
+    @OneToMany(mappedBy = "requirement", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<ScoutRequirement> options;
 }
